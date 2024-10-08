@@ -53,6 +53,10 @@ header {
     height: auto; /* Garde les proportions de l'image */
 }
 
+.logo a {
+    text-decoration: none; /* Supprime le soulignement du lien */
+}
+
 .navigation a {
     position: relative;
     font-size: 1.1em;

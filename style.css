@@ -45,14 +45,13 @@ header {
 
 
 .logo {
-    font-size: 2em;
-    color: #fff;
-    user-select: none;
-    background-image: url("https://www.eigsi.fr/wp-content/uploads/EIGSI-LRCASA.jpg");
-    height: 100px; /* Ajuste la hauteur selon tes besoins */
-    width: 300px; /* Ajuste la largeur selon tes besoins */
+    text-align: center; /* Centre le logo */
 }
 
+.logo img {
+    width: 150px; /* Ajuste la largeur selon tes besoins */
+    height: auto; /* Garde les proportions de l'image */
+}
 
 .navigation a {
     position: relative;

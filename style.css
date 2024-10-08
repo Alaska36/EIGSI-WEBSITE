@@ -48,8 +48,17 @@ header {
     font-size: 2em;
     color: #fff;
     user-select: none;
-    background-image: url("https://www.eigsi.fr/wp-content/uploads/EIGSI-LRCASA.jpg")
+    background-image: url("https://www.eigsi.fr/wp-content/uploads/EIGSI-LRCASA.jpg");
+    background-size: cover; /* Fait en sorte que l'image couvre tout l'élément */
+    background-position: center; /* Centre l'image */
+    height: 150px; /* Ajuste la hauteur selon tes besoins */
+    width: 300px; /* Ajuste la largeur selon tes besoins */
+    display: flex; /* Utilise flexbox pour centrer le contenu */
+    align-items: center; /* Centre verticalement */
+    justify-content: center; /* Centre horizontalement */
+    text-align: center; /* Centre le texte */
 }
+
 
 .navigation a {
     position: relative;

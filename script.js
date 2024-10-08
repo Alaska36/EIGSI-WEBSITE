@@ -38,58 +38,40 @@ iconClose.forEach(icon => {
     });
 });
 
-// Fonction pour envoyer les données de connexion
-loginForm.addEventListener('submit', async (event) => {
-    event.preventDefault(); // Empêcher le rechargement de la page
 
-    const formData = new FormData(loginForm); // Récupérer les données du formulaire
 
-    try {
-        const response = await fetch('login.php', {
-            method: 'POST',
-            body: formData
-        });
 
-        const result = await response.json();
 
-        if (response.ok) {
-            // Stocker les informations de connexion dans le stockage local
-            localStorage.setItem('username', result.username);
-            // Rediriger vers la page profile
-            window.location.href = 'profile.php';
-        } else {
-            // Afficher un message d'erreur
-            document.getElementById('loginUsernameError').textContent = result.detail || 'Erreur de connexion';
-        }
-    } catch (error) {
-        console.error('Erreur:', error);
-    }
-});
 
-// Fonction pour envoyer les données d'enregistrement
-registerForm.addEventListener('submit', async (event) => {
-    event.preventDefault(); // Empêcher le rechargement de la page
 
-    const formData = new FormData(registerForm); // Récupérer les données du formulaire
+// Importer Supabase (si nécessaire)
+const { createClient } = supabase;
 
-    try {
-        const response = await fetch('register.php', {
-            method: 'POST',
-            body: formData
-        });
 
-        const result = await response.json();
+import { createClient } from '@supabase/supabase-js'
 
-        if (response.ok) {
-            // Réinitialiser les champs du formulaire
-            registerForm.reset();
-            // Rediriger vers la page de connexion
-            wrapper.classList.remove('active');
-        } else {
-            // Afficher un message d'erreur
-            document.getElementById('registerUsernameError').textContent = result.error || 'Erreur d\'enregistrement';
-        }
-    } catch (error) {
-        console.error('Erreur:', error);
+const supabaseUrl = 'https://ezdgfffkfljicnoozrcl.supabase.co'
+const supabaseKey = process.env.SUPABASE_KEY
+const supabase = createClient(supabaseUrl, supabaseKey)
+
+document.getElementById('loginForm').addEventListener('submit', async (event) => {
+    event.preventDefault(); // Empêche le rechargement de la page
+
+    const username = document.getElementById('loginUsername').value;
+    const password = document.getElementById('loginPassword').value;
+
+    // Authentification avec Supabase
+    const { user, error } = await supabase.auth.signIn({
+        email: username,
+        password: password,
+    });
+
+    if (error) {
+        console.error('Erreur lors de la connexion:', error.message);
+        alert('Échec de la connexion: ' + error.message);
+    } else {
+        console.log('Connexion réussie:', user);
+        // Redirige vers la page d'accueil
+        window.location.href = 'accueil.html';
     }
 });

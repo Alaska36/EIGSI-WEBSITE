@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acceuil - Casablanca Market</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+
+    <style>
+body {
+    font-family: 'Arial', sans-serif;
+    padding: 0;
+    margin: 0;
+    background-image: url("https://a.travel-assets.com/findyours-php/viewfinder/images/res70/469000/469964-Hassan-Ii-Mosque.jpg"); 
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Fixe l'image de fond */
+    overflow: hidden; /* Évite le défilement si le formulaire dépasse */
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 5px 10px; /* Réduit la largeur du padding pour plus de place */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 99;
+    background-color: rgba(0, 0, 0, .5); /* Couleur de fond semi-transparente */
+    color: #fff;
+}
+
+.logo {
+    font-size: 2em;
+    color: #fff;
+    user-select: none;
+}
+
+        
+.navigation {
+    display: flex;
+    gap: 15px;
+}
+
+.navigation a {
+    color: #ecf0f1;
+    text-decoration: none;
+    font-size: 1.1em;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.navigation a:hover {
+    color: #3498db;
+}
+
+.btn {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 1.1em;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #2980b9;
+}
+
+main {
+    padding: 200px 20px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    color: #fff;
+}
+
+h1 {
+    color: #ecf0f1;
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.product-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.product-item {
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    padding: 20px;
+    width: calc(33.333% - 20px);
+    box-sizing: border-box;
+    transition: transform 0.3s;
+}
+
+.product-item:hover {
+    transform: translateY(-5px);
+}
+
+.product-item h2 {
+    margin-top: 0;
+    color: #3498db;
+    font-size: 1.4em;
+}
+
+.product-item p {
+    margin: 5px 0;
+    color: #2c3e50;
+}
+
+.product-item .price {
+    font-weight: bold;
+    color: #e74c3c;
+}
+
+.product-item .merchant {
+    font-style: italic;
+    color: #7f8c8d;
+}
+
+.add-product-section {
+    position: fixed;
+    bottom: 20px; /* Fixe en bas de la page */
+    right: 20px;
+    z-index: 100;
+}
+
+.add-product-form {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    padding: 20px;
+    max-width: 600px;
+    margin: 20px auto;
+    display: none;
+}
+
+.add-product-section button {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    padding: 15px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: background-color 0.3s;
+}
+
+.add-product-form.active {
+    display: block; /* Show when active */
+}
+
+.add-product-form label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.add-product-section button:hover {
+    background-color: #377570;
+}
+
+.add-product-form input[type="text"],
+.add-product-form input[type="number"],
+.add-product-form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 1em;
+}
+
+.add-product-form button {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    padding: 15px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: background-color 0.3s;
+}
+
+.add-product-form button:hover {
+    background-color: #2980b9;
+}
+
+.edit-button {
+    display: block;
+    width: 200px;
+    margin: 20px auto;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.edit-button:hover {
+    background-color: #0056b3;
+}
+
+a.btnProfile, a.btnLogout {
+    display: inline-block;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    text-decoration: none; /* Enlève le soulignement des liens */
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin: 10px; /* Pour espacer les boutons */
+    margin-left: -200px;
+}
+
+a.btnProfile {
+    background-color: #4CAF50; /* Vert */
+}
+
+a.btnProfile:hover {
+    background-color: #45a049; /* Vert foncé au survol */
+}
+
+a.btnLogout {
+    background-color: #f44336; /* Rouge */
+}
+
+a.btnLogout:hover {
+    background-color: #e53935; /* Rouge foncé au survol */
+}
+
+
+    </style>
+</head>
+<body>
+    <header>        
+        <a href="index.html"><h2 class="logo">Casablanca Market</h2></a>      
+        <nav class="navigation">
+            <a href="profile.html" class="btnProfile">Profile</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="products">
+            <h1>Produits en Annonce</h1>
+            <div class="product-list">
+                {% for product in products %}
+                    <div class="product-item">
+                        <h2>{{ product.name }}</h2>
+                        <p>{{ product.description }}</p>
+                        <p class="price">Prix: {{ product.price }} MAD</p>
+                        <p class="merchant">Posté par: {{ product.merchant_username }}</p>
+                    </div>
+                {% empty %}
+                    <p>Aucun produit disponible pour le moment.</p>
+                {% endfor %}
+            </div>
+        </section>
+
+        <section class="add-product-form" id="addProductForm">
+            <h1>Ajouter un Nouveau Produit</h1>
+            <form action="/add-product" method="post">
+                <label for="name">Nom du Produit:</label>
+                <input type="text" id="name" name="name" required>
+                
+                <label for="description">Description:</label>
+                <textarea id="description" name="description" rows="4" required></textarea>
+                
+                <label for="price">Prix:</label>
+                <input type="number" id="price" name="price" step="0.01" required>
+                
+                <input type="hidden" name="merchant_id" value="{{ merchant_id }}">
+                
+                <button type="submit" class="btn">Ajouter Produit</button>
+            </form>
+        </section>
+    </main>
+
+    <section class="add-product-section">
+        <button class="btn" onclick="toggleAddProductForm()"><h9>+</h9> Ajouter un Nouveau Produit</button>
+    </section>
+
+    <script>
+        function toggleAddProductForm() {
+            const form = document.getElementById('addProductForm');
+            form.classList.toggle('active');
+        }
+    </script>
+</body>
+
+<script src="script.js"></script>
+    <!-- Inclusion de la bibliothèque AOS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <!-- Initialisation de AOS -->
+    <script>
+        AOS.init();
+    </script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</html>

@@ -1,0 +1,697 @@
+er@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+@font-face {
+    font-family: 'Broadway';
+    src: url('fonts/Broadway.ttf') format('truetype');
+}
+
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: fixed;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image: url("https://a.travel-assets.com/findyours-php/viewfinder/images/res70/469000/469964-Hassan-Ii-Mosque.jpg"); 
+    background-size: cover;
+    background-repeat: no-repeat; /* Empêche la répétition de l'image */
+    background-position: center;
+    margin: 0; /* Assure qu'il n'y a pas de marge */
+    overflow: hidden; /* Évite le défilement si le formulaire dépasse */
+    font-size: 16px;
+    overflow: auto; /* Assure-toi que le défilement est autorisé */
+}
+
+header {
+    position: flex;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 100px;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 99;
+    background-color: rgba(0, 0, 0, .5); /*Ajout d'une couleur de fond semi-transparente pour le header */
+    color: #fff
+}
+
+
+.logo {
+    font-size: 2em;
+    color: #fff;
+    user-select: none;
+}
+
+.navigation a {
+    position: relative;
+    font-size: 1.1em;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 40px;
+}
+
+.navigation a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 3px;
+    background: #fff;
+    border-radius: 5px;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform .5s
+}
+
+.navigation a:hover::after {
+    transform-origin: left;
+    transform: scaleX(1)
+}
+
+.navigation .btnLogin-popup {
+    width: 130px;
+    height: 50px;
+    background: transparent;
+    border: 2px solid #fff;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1em;
+    color: #fff;
+    font-weight: 500;
+    margin-left: 40px;
+    transition: .5s;
+}
+
+.navigation .btnLogin-popup:hover {
+    background: #fff;
+    color: #162938;
+}
+
+.wrapper {
+    position: relative; /* Fixe la position du wrapper */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    width: 400px;
+    height: 440px;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, .5);
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 30px rgba(0, 0, 0, .5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transform: scale(0);
+    transition: transform .5s ease, height .2s ease;
+}
+
+
+.wrapper.active-popup {
+    transform: scale(1);
+}
+
+.wrapper.active {
+    height: 520px;
+}
+
+.wrapper .form-box {
+    width: 100%;
+    padding: 40px;
+}
+
+.wrapper .form-box.login {
+    transition: transform .18s ease;
+    transform: translateX(0);
+}
+
+.wrapper.active .form-box.login {
+    transition: none;
+    transform: translateX(-400px);
+}
+
+.wrapper .form-box.register {
+    position: absolute;
+    transition: none;
+    transform: translateX(400px);
+}
+
+.wrapper.active .form-box.register {
+    transition: transform .18s ease;
+    transform: translateX(0);
+}
+
+.wrapper .icon-close {
+    position: absolute;
+    top: 10px;
+    right: 0;
+    width: 45px;
+    height: 45px;
+    background: #162938;
+    font-size: 2em;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom-left-radius: 20px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.form-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 40px 20px;
+    transition: transform .5s ease;
+}
+
+.form-box h2 {
+    font-size: 2em;
+    color: #162938;
+    text-align: center;
+}
+
+.form-box.login {
+    transform: translateX(0);
+}
+
+
+.input-box {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    border-bottom: 2px solid #162938;
+    margin: 20px 0;
+}
+
+.input-box label {
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    font-size: 1em;
+    color: #162938;
+    font-weight: 500;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.input-box input:focus~label,
+.input-box input:valid~label {
+    top: -5px;
+}
+
+.input-box input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    color: #162938;
+    font-weight: 600;
+    padding: 0 35px 0 5px;
+}
+
+.input-box .icon {
+    position: absolute;
+    right: 8px;
+    font-size: 1.2em;
+    color: #162938;
+    line-height: 57px;
+}
+
+.remember-forgot {
+    font-size: .9m;
+    color: #162938;
+    font-weight: 500;
+    margin: -15px 0 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.remember-forgot label input {
+    accent-color: #162938;
+    margin-right: 3px;
+}
+
+.remember-forgot a {
+    color: #162938;
+    text-decoration: none;
+}
+
+.remember-forgot a:hover {
+    text-decoration: underline;
+}
+
+.btn {
+    width: 100%;
+    height: 45px;
+    background: #162938;
+    border: none;
+    outline: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+    color: #fff;
+    font-weight: 500;
+    background-color: #007bff;
+    padding: 10px 20px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+    transform: scale(1.1);
+}
+
+.login-register {
+    font-size: .9em;
+    color: #162938;
+    text-align: center;
+    font-weight: 500;
+    margin: 25px 0 10px;
+}
+
+.login-register p a {
+    color: #162938;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.remember-forgot p a:hover {
+    text-decoration: underline;
+}
+
+.background {
+    background: url('background-video.mp4') no-repeat center center fixed;
+    background-size: cover;
+}
+
+
+
+
+
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.slide-in {
+    animation: slideIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.fade-in {
+    animation: fadeIn 1s ease-in;
+}
+
+
+@keyframes scrollEffect {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.scroll-effect {
+    animation: scrollEffect 1s ease-out;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    header nav {
+        margin-top: 10px;
+    }
+
+    .navigation a {
+        font-size: 1em;
+        margin-left: 30px;
+    }
+    
+    .navigation .btnLogin-popup {
+        width: 120px;
+        height: 45px;
+        font-size: 1em;
+        margin-left: 30px;
+    }
+
+     .wrapper {
+        width: 90%;
+        padding: 15px;
+        backgroung-color: rgba(0, 0, 0, .5);
+    }
+    .input-box {
+        margin: 12px 0;
+    }
+    .btn {
+        padding: 12px;
+    }
+
+     body {
+        background-size: cover;
+        background-image: url("https://a.travel-assets.com/findyours-php/viewfinder/images/res70/469000/469964-Hassan-Ii-Mosque.jpg"); 
+    }
+
+}
+
+
+
+@media (max-width: 600px) {
+
+     header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    header nav {
+        margin-top: 10px;
+    }
+
+    .navigation a {
+        font-size: 0.9em;
+        margin-left: 20px;
+    }
+    
+    .navigation .btnLogin-popup {
+        width: 110px;
+        height: 40px;
+        font-size: 0.9em;
+        margin-left: 20px;
+    }
+    
+    .wrapper {
+        width: 90%;
+        padding: 20px;
+        backgroung-color: rgba(0, 0, 0, .5);
+    }
+    .input-box {
+        margin: 15px 0;
+    }
+    .btn {
+        padding: 10px;
+    }
+
+     body {
+        background-size: cover;
+        background-image: url("https://a.travel-assets.com/findyours-php/viewfinder/images/res70/469000/469964-Hassan-Ii-Mosque.jpg"); 
+    }
+}
+
+/* Styles pour les écrans de 768px ou moins */
+@media only screen and (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+}
+
+/* Styles pour les écrans de 480px ou moins */
+@media only screen and (max-width: 480px) {
+  body {
+    font-size: 12px;
+  }
+}
+
+/* Grille de base */
+.container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.col {
+  flex: 1;
+  padding: 15px;
+}
+
+/* Styles pour les petits écrans */
+@media (max-width: 768px) {
+  .col {
+    flex-basis: 100%;
+  }
+     .wrapper {
+        width: 95%;
+        padding: 10px;
+    }
+    .input-box {
+        margin: 10px 0;
+    }
+    .btn {
+        padding: 8px;
+    }
+}
+
+
+.item {
+    flex: 1;
+    margin: 10px;
+}
+
+
+/* Pour les très petits écrans (ex: téléphones) */
+@media (max-width: 480px) {
+    
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    header nav {
+        margin-top: 10px;
+    }
+    
+
+    .navigation a {
+        font-size: 0.8em;
+        margin-left: 10px;
+    }
+    
+    .navigation .btnLogin-popup {
+        width: 100px;
+        height: 35px;
+        font-size: 0.8em;
+        margin-left: 10px;
+    }
+    
+    .wrapper {
+        width: 95%;
+        padding: 10px;
+        backgroung-color: rgba(0, 0, 0, .5);
+    }
+    .input-box {
+        margin: 10px 0;
+    }
+    .btn {
+        padding: 8px;
+    }
+
+     body {
+        background-size: cover;
+        background-image: url("https://a.travel-assets.com/findyours-php/viewfinder/images/res70/469000/469964-Hassan-Ii-Mosque.jpg"); 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* About Page Style */
+.about {
+    color: #fff;
+    padding: 50px;
+    background: rgba(22, 41, 56, 0.8);
+    border-radius: 10px;
+    max-width: 800px;
+    margin: 100px auto;
+    text-align: center;
+}
+
+.about h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.about p {
+    font-size: 1.1em;
+    line-height: 1.6;
+}
+
+
+
+/* Contacts Page Style */
+.contact {
+    color: #fff;
+    padding: 50px;
+    text-align: center;
+}
+
+.contact h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.contact p {
+    font-size: 1.1em;
+    line-height: 1.6;
+}
+
+.contact-form {
+    background: rgba(22, 41, 56, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    font-size: 1em;
+}
+
+.contact-form .btn {
+    background: #162938;
+    border: none;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1em;
+    color: #fff;
+    font-weight: 500;
+    width: 100%;
+    padding: 10px;
+}
+
+
+
+
+
+
+a.btnProfile, a.btnLogout {
+    display: inline-block;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none; /* Enlève le soulignement des liens */
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin: 5px; /* Pour espacer les boutons */
+}
+
+a.btnProfile {
+    background-color: #4CAF50; /* Vert */
+}
+
+a.btnProfile:hover {
+    background-color: #45a049; /* Vert foncé au survol */
+}
+
+a.btnLogout {
+    background-color: #f44336; /* Rouge */
+}
+
+a.btnLogout:hover {
+    background-color: #e53935; /* Rouge foncé au survol */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,219 @@
+<?php
+session_start();
+if (!isset($_SESSION['username'])) {
+    header('Location: login.php');
+    exit;
+}
+?>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Profil - Casablanca Market</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <style>
+        /* Styles globaux */
+        body {
+            font-family: 'Arial', sans-serif;
+            padding: 0;
+            margin: 0;
+            background: linear-gradient(to right, #f0f8ff, #e6e6fa); /* Dégradé de couleur pour le fond de la page */
+            background-color: white; 
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; /* Fixe l'image de fond */
+            overflow: hidden; /* Évite le défilement si le formulaire dépasse */
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 20px; /* Padding autour du header */
+            background-color: rgba(0, 0, 0, 0.5); /* Couleur de fond semi-transparente */
+            color: #ffffff;
+            position: relative;
+        }
+        
+        .logo-link {
+            display: flex;
+            align-items: center;
+            text-decoration: none; /* Supprime le soulignement du lien */
+        }
+        
+        .logo-image {
+            width: 100px; /* Ajuste la largeur du logo */
+            height: auto; /* Garde les proportions de l'image */
+        }
+        
+        .logo {
+            font-size: 2em;
+            color: #fff;
+            user-select: none;
+       }
+        
+        .navigation {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .navigation a {
+            color: #ecf0f1;
+            text-decoration: none;
+            font-size: 1.1em;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .navigation a:hover {
+            color: #3498db;
+        }
+        
+        .btn {
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 1.1em;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #2980b9;
+        }
+        
+        a.btnProfile, a.btnLogout {
+            display: inline-block;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 20px;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin: 10px;
+        }
+
+        a.btnLogout {
+            background-color: #f44336; /* Rouge */
+        }
+        
+        a.btnLogout:hover {
+            background-color: #e53935; /* Rouge foncé au survol */
+        }
+        
+        /* Styles pour la section profil */
+        #profile {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 800px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            color: #333;
+        }
+
+        /* Styles pour le titre dans la section profil */
+        #profile h1 {
+            font-size: 2.5em;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        /* Styles pour le paragraphe dans la section profil */
+        #profile p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            color: #555;
+        }
+        
+        /* Styles pour le formulaire dans la section profil */
+        #profile form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        #profile label {
+            font-size: 1em;
+            margin-bottom: 5px;
+        }
+
+        #profile input {
+            font-size: 1em;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        #profile .btn {
+            background-color: #4a90e2;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            font-size: 1.1em;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        #profile .btn:hover {
+            background-color: #357abd;
+        }
+    </style>
+</head>
+<body>
+    <header>              
+        <a href="index.html"><h2 class="logo">Casablanca Market</h2></a>
+        <nav class="navigation">
+            <a href="index.html" class="btnLogout">Logout</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="profile">
+            <h1>Bienvenue, <?php echo htmlspecialchars($_SESSION['username']); ?></h1>
+                <p>Voici votre espace personnel.</p>
+                <a href="logout.php">Déconnexion</a>
+           <div class="profile-info">
+                <h2>Informations personnelles</h2>
+                <p><strong>Nom d'utilisateur:</strong> {{ user_data.username }}</p>
+                <p><strong>Email:</strong> {{ user_data.email }}</p>
+            </div>
+            <div class="user-settings">
+                <h2>Paramètres du compte</h2>
+                <form action="/update_profile" method="post">
+                    <input type="hidden" name="username" value="{{ user_data.username }}">
+                    
+                    <label for="email">Nouvel Email:</label>
+                    <input type="email" id="email" name="email" value="{{ user_data.email }}" required>
+                    
+                    <label for="password">Nouveau Mot de Passe:</label>
+                    <input type="password" id="password" name="password" required>
+                    
+                    <button type="submit" class="btn">Sauvegarder les modifications</button>
+                    
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+    <!-- Inclusion de la bibliothèque AOS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <!-- Initialisation de AOS -->
+    <script>
+        AOS.init();
+    </script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

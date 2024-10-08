@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Casablanca Market</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+</head>
+<body>
+    <header>       
+        <a href="index.html"><h2 class="logo">Casablanca Market</h2></a>
+        <nav class="navigation">
+            <a href="index.html">Home</a>
+            <a href="about.html">À propos</a>
+            <a href="offres.html">Nos Offres</a>
+            <a href="contact.html">Contact</a>
+            <button class="btnLogin-popup">Se connecter</button>
+        </nav>
+    </header>
+    <main>
+        <section class="contact">
+            <h1>Contactez-nous</h1>
+            <p>Si vous avez des questions ou avez besoin de plus d'informations, n'hésitez pas à nous contacter.</p>
+            <form class="contact-form" action="contact.php" method="post">
+                <input type="text" name="name" placeholder="Votre nom" required>
+                <input type="email" name="email" placeholder="Votre email" required>
+                <textarea name="message" placeholder="Votre message" rows="4" required></textarea>
+                <button type="submit" class="btn">Envoyer</button>
+            </form>
+        </section>
+    </main>
+    
+
+    <div class="wrapper">
+
+        <div class="form-box login">
+            <span class="icon-close">&times;</span>    
+            <h2>Connexion</h2>
+            <form id="loginForm" action="/login" method="POST">
+                <div class="input-box">
+                    <span class="icon">
+                        <ion-icon name="person"></ion-icon>
+                    </span>
+                    <input type="text" id="loginUsername" name="username" required>
+                    <label for="loginUsername">Nom d'utilisateur</label>
+                    <div class="error-message" id="loginUsernameError"></div>
+                </div>
+
+                <div class="input-box">
+                    <span class="icon">
+                        <ion-icon name="lock-closed"></ion-icon>
+                    </span>
+                    <input type="password" id="loginPassword" name="password" required>
+                    <label for="loginPassword">Mot de passe</label>
+                    <div class="error-message" id="loginPasswordError"></div>
+                </div>
+                <div class="remember-forgot">
+                    <label><input type="checkbox"> Se souvenir de moi</label>
+                    <a href="#">Mot de passe oublié ?</a>
+                </div>
+                <button type="submit" class="btn">Se connecter</button>
+                <div class="login-register">
+                    <p>Pas de compte ? <a href="#" class="register-link">S'enregistrer</a></p>
+                </div>
+            </form>
+        </div>
+    
+
+    
+        <div class="form-box register">
+            <span class="icon-close">&times;</span>
+            <h2>S'enregistrer</h2>
+            <form id="registerForm" action="/login">
+                <div class="input-box">
+                    <span class="icon">
+                        <ion-icon name="mail"></ion-icon>
+                    </span>
+                    <input type="email" id="registerEmail" name="email" required>
+                    <label for="registerEmail">Email</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon">
+                        <ion-icon name="person"></ion-icon>
+                    </span>
+                    <input type="text" id="registerUsername" name="username" required>
+                    <label for="registerUsername">Nom d'utilisateur</label>
+                    <div class="error-message" id="registerUsernameError"></div>
+                </div>
+                <div class="input-box">
+                    <span class="icon">
+                        <ion-icon name="lock-closed"></ion-icon>
+                    </span>
+                    <input type="password" id="registerPassword" name="password" required>
+                    <label for="registerPassword">Mot de passe</label>
+                    <div class="error-message" id="registerPasswordError"></div>
+                </div>
+                <div class="remember-forgot">
+                    <label><input type="checkbox"> J'accepte les termes et conditions</label>
+                </div>
+                <button type="submit" class="btn">S'enregistrer</button>
+                <div class="login-register">
+                    <p>J'ai déjà un compte ? <a href="#" class="login-link">Se connecter</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+   <script src="script.js"></script>
+    <!-- Inclusion de la bibliothèque AOS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <!-- Initialisation de AOS -->
+    <script>
+        AOS.init();
+    </script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

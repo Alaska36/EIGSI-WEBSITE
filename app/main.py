@@ -112,13 +112,20 @@ def login(user: UserLogin, db: Session = Depends(get_db)):
 
 
 
+# git remote add origin https://github.com/ton-nom-utilisateur/nom-du-repository.git
+# Si tu n'as pas encore lié ton dépôt local à un dépôt distant sur GitHub, fais-le avec cette commande
+
+# git init - Si tu n'as pas encore initialisé un dépôt, utilise cette commande dans ton dossier de projet
+
+# git status - Avant d'ajouter ou de committer, tu peux vérifier les fichiers modifiés avec cette commande
 
 
+# git add .  -> Si tu veux ajouter tous les fichiers modifiés, utilise
 
+# git add nom_du_fichier  -  Sinon, tu peux ajouter des fichiers spécifiques, par exemple
 
-
-
-
+# git commit -m "Message décrivant les changements"
+# git push -u origin master
 
 
 

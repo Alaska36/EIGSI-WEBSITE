@@ -1,13 +1,14 @@
-// Vérifier que le DOM est entièrement chargé
-document.addEventListener('DOMContentLoaded', () => {
-
-    // Importer Supabase (si nécessaire)
+// Importer Supabase (si nécessaire)
 const { createClient } = supabase;
 
 
 const supabaseUrl = 'https://ezdgfffkfljicnoozrcl.supabase.co'
 const supabaseKey = process.env.SUPABASE_KEY
 const supabase = createClient(supabaseUrl, supabaseKey)
+
+
+
+
 const btnLoginPopup = document.querySelector('.btnLogin-popup');
 const wrapper = document.querySelector('.wrapper');
 const iconClose = document.querySelectorAll('.icon-close');
@@ -52,6 +53,7 @@ iconClose.forEach(icon => {
 
 
 
+// Gestion de la soumission du formulaire de connexion
 document.getElementById('loginForm').addEventListener('submit', async (event) => {
     event.preventDefault(); // Empêche le rechargement de la page
 
@@ -72,5 +74,4 @@ document.getElementById('loginForm').addEventListener('submit', async (event) =>
         // Redirige vers la page d'accueil
         window.location.href = 'accueil.html';
     }
-});
 });

@@ -1,10 +1,3 @@
-const supabaseUrl = 'https://ezdgfffkfljicnoozrcl.supabase.co'
-const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImV6ZGdmZmZrZmxqaWNub296cmNsIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTcyODIwMjE3MSwiZXhwIjoyMDQzNzc4MTcxfQ.nCP97BV99NxF8CC8yqq43PLCBLHT9Z9-YpKxLcajumc'
-const supabase = createClient(supabaseUrl, supabaseKey)
-
-
-
-
 const btnLoginPopup = document.querySelector('.btnLogin-popup');
 const wrapper = document.querySelector('.wrapper');
 const iconClose = document.querySelectorAll('.icon-close');
@@ -46,28 +39,3 @@ iconClose.forEach(icon => {
     });
 });
 
-
-
-
-// Gestion de la soumission du formulaire de connexion
-document.getElementById('loginForm').addEventListener('submit', async (event) => {
-    event.preventDefault(); // Empêche le rechargement de la page
-
-    const username = document.getElementById('loginUsername').value;
-    const password = document.getElementById('loginPassword').value;
-
-    // Authentification avec Supabase
-    const { user, error } = await supabase.auth.signIn({
-        email: username,
-        password: password,
-    });
-
-    if (error) {
-        console.error('Erreur lors de la connexion:', error.message);
-        alert('Échec de la connexion: ' + error.message);
-    } else {
-        console.log('Connexion réussie:', user);
-        // Redirige vers la page d'accueil
-        window.location.href = 'accueil.html';
-    }
-});

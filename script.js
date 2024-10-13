@@ -49,6 +49,11 @@ iconClose.forEach(icon => {
     });
 });
 
+// Sélectionne le bouton avec la classe 'btnLogin-popup'
+document.querySelector('.btnLogin-popup').addEventListener('click', function() {
+    // Sélectionne le formulaire à afficher
+    document.getElementById('formWrapper').style.display = 'block';
+});
 
 
 

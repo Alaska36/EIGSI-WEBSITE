@@ -1,5 +1,5 @@
 const supabaseUrl = 'https://ezdgfffkfljicnoozrcl.supabase.co'
-const supabaseKey = process.env.SUPABASE_KEY
+const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImV6ZGdmZmZrZmxqaWNub296cmNsIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTcyODIwMjE3MSwiZXhwIjoyMDQzNzc4MTcxfQ.nCP97BV99NxF8CC8yqq43PLCBLHT9Z9-YpKxLcajumc'
 const supabase = createClient(supabaseUrl, supabaseKey)
 
 

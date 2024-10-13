@@ -1,7 +1,3 @@
-// Importer Supabase (si nécessaire)
-const { createClient } = supabase;
-
-
 const supabaseUrl = 'https://ezdgfffkfljicnoozrcl.supabase.co'
 const supabaseKey = process.env.SUPABASE_KEY
 const supabase = createClient(supabaseUrl, supabaseKey)

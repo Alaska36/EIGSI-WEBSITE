@@ -1,4 +1,7 @@
-// Importer Supabase (si nécessaire)
+// Vérifier que le DOM est entièrement chargé
+document.addEventListener('DOMContentLoaded', () => {
+
+    // Importer Supabase (si nécessaire)
 const { createClient } = supabase;
 
 
@@ -69,4 +72,5 @@ document.getElementById('loginForm').addEventListener('submit', async (event) =>
         // Redirige vers la page d'accueil
         window.location.href = 'accueil.html';
     }
+});
 });

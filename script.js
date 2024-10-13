@@ -1,3 +1,10 @@
+// Importer Supabase (si nécessaire)
+const { createClient } = supabase;
+
+
+const supabaseUrl = 'https://ezdgfffkfljicnoozrcl.supabase.co'
+const supabaseKey = process.env.SUPABASE_KEY
+const supabase = createClient(supabaseUrl, supabaseKey)
 const btnLoginPopup = document.querySelector('.btnLogin-popup');
 const wrapper = document.querySelector('.wrapper');
 const iconClose = document.querySelectorAll('.icon-close');
@@ -41,18 +48,6 @@ iconClose.forEach(icon => {
 
 
 
-
-
-
-// Importer Supabase (si nécessaire)
-const { createClient } = supabase;
-
-
-import { createClient } from '@supabase/supabase-js'
-
-const supabaseUrl = 'https://ezdgfffkfljicnoozrcl.supabase.co'
-const supabaseKey = process.env.SUPABASE_KEY
-const supabase = createClient(supabaseUrl, supabaseKey)
 
 document.getElementById('loginForm').addEventListener('submit', async (event) => {
     event.preventDefault(); // Empêche le rechargement de la page

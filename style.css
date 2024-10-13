@@ -117,7 +117,7 @@ header {
     border-radius: 20px;
     backdrop-filter: blur(20px);
     box-shadow: 0 0 30px rgba(0, 0, 0, .5);
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     overflow: hidden;
@@ -127,6 +127,7 @@ header {
 
 
 .wrapper.active-popup {
+    display: block;
     transform: scale(1);
 }
 

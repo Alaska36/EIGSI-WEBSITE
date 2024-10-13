@@ -382,7 +382,6 @@ header {
 @media (max-width: 768px) {
     header {
         flex-direction: column;
-        text-align: center;
     }
 
     header nav {
@@ -433,7 +432,6 @@ header {
 
      header {
         flex-direction: column;
-        text-align: center;
     }
 
     header nav {

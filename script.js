@@ -19,6 +19,7 @@ const registerForm = document.querySelector('.form-box.register form');
 
 // Ouvrir le popup de connexion
 btnLoginPopup.addEventListener('click', () => {
+    console.log('Bouton "Se connecter" cliqué');
     wrapper.classList.add('active-popup');
     loginForm.classList.add('active');
     registerForm.classList.remove('active'); // Assurez-vous que le formulaire d'enregistrement n'est pas actif
@@ -47,12 +48,6 @@ iconClose.forEach(icon => {
         loginForm.classList.remove('active');
         registerForm.classList.remove('active');
     });
-});
-
-// Sélectionne le bouton avec la classe 'btnLogin-popup'
-document.querySelector('.btnLogin-popup').addEventListener('click', function() {
-    // Sélectionne le formulaire à afficher
-    document.getElementById('formWrapper').style.display = 'block';
 });
 
 

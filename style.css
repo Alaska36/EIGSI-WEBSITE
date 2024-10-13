@@ -382,6 +382,13 @@ header {
 @media (max-width: 768px) {
     header {
         flex-direction: column;
+        text-align: center;
+        position: relative;
+        top: 0;
+        left: 0;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
     }
 
     header nav {
@@ -432,6 +439,13 @@ header {
 
      header {
         flex-direction: column;
+        text-align: center;
+        position: relative;
+        top: 0;
+        left: 0;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
     }
 
     header nav {
@@ -530,6 +544,13 @@ header {
     
     header {
         flex-direction: column;
+        text-align: center;
+        position: relative;
+        top: 0;
+        left: 0;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
     }
 
     header nav {

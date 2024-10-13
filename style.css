@@ -405,17 +405,24 @@ header {
         width: 90%;
         padding: 15px;
         background-color: rgba(0, 0, 0, .5);
+        height: auto;
     }
     .input-box {
-        margin: 12px 0;
+        margin: 12px 0; 
+        padding: 0 10px;
+
     }
     .btn {
-        padding: 12px;
+        font-size: 0.9em;
     }
 
      body {
         background-size: cover;
         background-image: url("https://a.travel-assets.com/findyours-php/viewfinder/images/res70/469000/469964-Hassan-Ii-Mosque.jpg"); 
+    }
+
+    .wrapper.active {
+        height: auto; /* Permet au wrapper de s'adapter à la hauteur de son contenu */
     }
 
 }
@@ -525,7 +532,6 @@ header {
     
     header {
         flex-direction: column;
-        text-align: center;
     }
 
     header nav {

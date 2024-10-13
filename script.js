@@ -8,7 +8,6 @@ const registerForm = document.querySelector('.form-box.register form');
 
 // Ouvrir le popup de connexion
 btnLoginPopup.addEventListener('click', () => {
-    console.log('Bouton "Se connecter" cliqué');
     wrapper.classList.add('active-popup');
     loginForm.classList.add('active');
     registerForm.classList.remove('active'); // Assurez-vous que le formulaire d'enregistrement n'est pas actif

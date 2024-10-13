@@ -395,6 +395,10 @@ header {
         margin-top: 10px;
     }
 
+    .logo img {
+        width: 100px;
+    }
+
     .navigation a {
         font-size: 1em;
         margin-left: 30px;
@@ -450,6 +454,10 @@ header {
 
     header nav {
         margin-top: 10px;
+    }
+
+    .logo img {
+        width: 100px;
     }
 
     .navigation a {
@@ -557,6 +565,9 @@ header {
         margin-top: 10px;
     }
     
+    .logo img {
+        width: 80px;
+    }
 
     .navigation a {
         font-size: 0.8em;
